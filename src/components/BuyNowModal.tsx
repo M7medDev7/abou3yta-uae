@@ -19,7 +19,7 @@ interface FormData {
   phoneSecondary: string;
 }
 
-const WHATSAPP_NUMBER = '01020217073';
+const WHATSAPP_NUMBER = '+201020217073';
 
 export function BuyNowModal({ phone, isOpen, onClose }: BuyNowModalProps) {
   const { toast } = useToast();
@@ -70,7 +70,7 @@ export function BuyNowModal({ phone, isOpen, onClose }: BuyNowModalProps) {
 
 📱 *${phone.name}*
 💰 السعر: ${phone.price.toLocaleString()} ${phone.currency}
-🔧 المواصفات: ${phone.shortSpecs.ram} • ${phone.shortSpecs.storage}
+🔧 المواصفات: ${phone.shortSpecs.ram} • ${phone.shortSpecs.storage} • ${phone.shortSpecs.color}
 
 👤 *بيانات العميل:*
 الاسم: ${formData.name}
