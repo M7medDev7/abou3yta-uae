@@ -1,0 +1,182 @@
+[
+  {
+    "id": "s24-ultra",
+    "slug": "samsung-galaxy-s24-ultra",
+    "brand": "Samsung",
+    "model": "Galaxy S24 Ultra",
+    "name": "سامسونج جالاكسي S24 ألترا",
+    "shortSpecs": { "ram": "12GB", "storage": "256GB", "color": "أسود تيتانيوم" },
+    "price": 49999,
+    "currency": "EGP",
+    "colors": [
+      { "name": "أسود تيتانيوم", "code": "#2c2c2c", "images": ["/src/assets/phones/s24-ultra-black.jpg"] },
+      { "name": "رمادي تيتانيوم", "code": "#7b7b7b", "images": ["/src/assets/phones/s24-ultra-black.jpg"] }
+    ],
+    "specs": {
+      "screen": "6.8\" QHD+ AMOLED 120Hz",
+      "processor": "Snapdragon 8 Gen 3",
+      "camera": "200MP + 12MP + 10MP + 10MP",
+      "battery": "5000mAh",
+      "os": "Android 14",
+      "network": "5G",
+      "sim": "Dual SIM",
+      "dimensions": "162.3 x 79.0 x 8.6 mm",
+      "weight": "232g"
+    },
+    "pros": ["شاشة ممتازة عالية الدقة", "بطارية قوية تدوم طوال اليوم", "كاميرا احترافية 200 ميجابكسل", "أداء سريع جداً"],
+    "cons": ["سعر مرتفع نسبياً", "حجم كبير قد لا يناسب الجميع"],
+    "extraImages": [],
+    "availability": "in_stock",
+    "keywords": ["سامسونج", "S24", "S24 Ultra", "جالاكسي", "فلاجشيب", "تيتانيوم"]
+  },
+  {
+    "id": "iphone15-pro-max",
+    "slug": "apple-iphone-15-pro-max",
+    "brand": "Apple",
+    "model": "iPhone 15 Pro Max",
+    "name": "آبل آيفون 15 برو ماكس",
+    "shortSpecs": { "ram": "8GB", "storage": "256GB", "color": "تيتانيوم طبيعي" },
+    "price": 54999,
+    "currency": "EGP",
+    "colors": [
+      { "name": "تيتانيوم طبيعي", "code": "#8e8e93", "images": ["/src/assets/phones/iphone15-pro-titanium.jpg"] },
+      { "name": "تيتانيوم أزرق", "code": "#395c6b", "images": ["/src/assets/phones/iphone15-pro-titanium.jpg"] }
+    ],
+    "specs": {
+      "screen": "6.7\" Super Retina XDR OLED",
+      "processor": "A17 Pro Bionic",
+      "camera": "48MP + 12MP + 12MP",
+      "battery": "4422mAh",
+      "os": "iOS 17",
+      "network": "5G",
+      "sim": "Dual SIM (eSIM)",
+      "dimensions": "159.9 x 76.7 x 8.25 mm",
+      "weight": "221g"
+    },
+    "pros": ["نظام iOS المتطور", "معالج A17 Pro سريع جداً", "جودة بناء ممتازة", "تحديثات طويلة المدى"],
+    "cons": ["سعر مرتفع جداً", "منفذ Lightning بدلاً من USB-C", "بطارية أقل من المنافسين"],
+    "extraImages": [],
+    "availability": "in_stock",
+    "keywords": ["آبل", "آيفون", "iPhone", "15", "Pro Max", "تيتانيوم", "iOS"]
+  },
+  {
+    "id": "xiaomi14-ultra",
+    "slug": "xiaomi-14-ultra",
+    "brand": "Xiaomi",
+    "model": "14 Ultra",
+    "name": "شاومي 14 ألترا",
+    "shortSpecs": { "ram": "16GB", "storage": "512GB", "color": "أسود" },
+    "price": 39999,
+    "currency": "EGP",
+    "colors": [
+      { "name": "أسود", "code": "#1a1a1a", "images": ["/src/assets/phones/xiaomi14-ultra-black.jpg"] },
+      { "name": "أبيض", "code": "#f5f5f5", "images": ["/src/assets/phones/xiaomi14-ultra-black.jpg"] }
+    ],
+    "specs": {
+      "screen": "6.73\" LTPO AMOLED 120Hz",
+      "processor": "Snapdragon 8 Gen 3",
+      "camera": "50MP + 50MP + 50MP + 50MP",
+      "battery": "5300mAh",
+      "os": "MIUI 15 Android 14",
+      "network": "5G",
+      "sim": "Dual SIM",
+      "dimensions": "161.4 x 75.3 x 9.2 mm",
+      "weight": "224g"
+    },
+    "pros": ["كاميرا Leica ممتازة", "ذاكرة وصول عشوائي كبيرة 16GB", "بطارية ضخمة 5300mAh", "سعر ممتاز مقابل المواصفات"],
+    "cons": ["واجهة MIUI قد تكون معقدة", "حجم كبير ووزن ثقيل"],
+    "extraImages": [],
+    "availability": "in_stock",
+    "keywords": ["شاومي", "Xiaomi", "14 Ultra", "Leica", "كاميرا"]
+  },
+  {
+    "id": "oppo-findx7-pro",
+    "slug": "oppo-find-x7-pro",
+    "brand": "Oppo",
+    "model": "Find X7 Pro",
+    "name": "أوبو فايند X7 برو",
+    "shortSpecs": { "ram": "12GB", "storage": "256GB", "color": "أسود فضائي" },
+    "price": 34999,
+    "currency": "EGP",
+    "colors": [
+      { "name": "أسود فضائي", "code": "#0a0a0a", "images": ["/src/assets/phones/oppo-findx7-black.jpg"] },
+      { "name": "أزرق محيطي", "code": "#1e3a8a", "images": ["/src/assets/phones/oppo-findx7-black.jpg"] }
+    ],
+    "specs": {
+      "screen": "6.82\" LTPO AMOLED 120Hz",
+      "processor": "Dimensity 9300",
+      "camera": "50MP + 50MP + 50MP",
+      "battery": "5400mAh",
+      "os": "ColorOS 14 Android 14",
+      "network": "5G",
+      "sim": "Dual SIM",
+      "dimensions": "164.3 x 76.2 x 9.5 mm",
+      "weight": "221g"
+    },
+    "pros": ["شحن سريع جداً 100W", "شاشة منحنية جميلة", "كاميرا Hasselblad", "تصميم أنيق"],
+    "cons": ["معالج Dimensity أقل شهرة", "واجهة ColorOS تحتاج تعود"],
+    "extraImages": [],
+    "availability": "in_stock",
+    "keywords": ["أوبو", "OPPO", "Find X7", "Hasselblad", "شحن سريع"]
+  },
+  {
+    "id": "realme-gt5-pro",
+    "slug": "realme-gt5-pro",
+    "brand": "Realme",
+    "model": "GT5 Pro",
+    "name": "ريلمي GT5 برو",
+    "shortSpecs": { "ram": "12GB", "storage": "256GB", "color": "أخضر نيون" },
+    "price": 24999,
+    "currency": "EGP",
+    "colors": [
+      { "name": "أخضر نيون", "code": "#10b981", "images": ["/src/assets/phones/xiaomi14-ultra-black.jpg"] },
+      { "name": "أسود مطفي", "code": "#1f1f1f", "images": ["/src/assets/phones/xiaomi14-ultra-black.jpg"] }
+    ],
+    "specs": {
+      "screen": "6.7\" AMOLED 144Hz",
+      "processor": "Snapdragon 8 Gen 2",
+      "camera": "50MP + 8MP + 2MP",
+      "battery": "5400mAh",
+      "os": "Realme UI 5.0 Android 14",
+      "network": "5G",
+      "sim": "Dual SIM",
+      "dimensions": "161.7 x 73.9 x 8.2 mm",
+      "weight": "189g"
+    },
+    "pros": ["سعر ممتاز للمواصفات", "شاشة 144Hz سلسة", "تصميم جذاب للشباب", "أداء قوي في الألعاب"],
+    "cons": ["كاميرا أقل من المنافسين", "واجهة تحتاج تحسين"],
+    "extraImages": [],
+    "availability": "in_stock",
+    "keywords": ["ريلمي", "Realme", "GT5", "ألعاب", "شباب", "144Hz"]
+  },
+  {
+    "id": "infinix-note40-pro",
+    "slug": "infinix-note-40-pro",
+    "brand": "Infinix",
+    "model": "Note 40 Pro",
+    "name": "إنفينكس نوت 40 برو",
+    "shortSpecs": { "ram": "8GB", "storage": "256GB", "color": "أزرق متدرج" },
+    "price": 12999,
+    "currency": "EGP",
+    "colors": [
+      { "name": "أزرق متدرج", "code": "#3b82f6", "images": ["/src/assets/phones/oppo-findx7-black.jpg"] },
+      { "name": "ذهبي شمبانيا", "code": "#d4af37", "images": ["/src/assets/phones/oppo-findx7-black.jpg"] }
+    ],
+    "specs": {
+      "screen": "6.78\" AMOLED 120Hz",
+      "processor": "Dimensity 7020",
+      "camera": "108MP + 2MP + 0.08MP",
+      "battery": "5000mAh",
+      "os": "XOS 14 Android 14",
+      "network": "4G",
+      "sim": "Dual SIM",
+      "dimensions": "164.3 x 74.96 x 7.8 mm",
+      "weight": "190g"
+    },
+    "pros": ["سعر اقتصادي ممتاز", "تصميم جميل وألوان جذابة", "بطارية جيدة", "شاشة AMOLED بسعر منخفض"],
+    "cons": ["معالج متوسط الأداء", "كاميرا أساسية فقط", "بدون 5G"],
+    "extraImages": [],
+    "availability": "out_of_stock",
+    "keywords": ["إنفينكس", "Infinix", "Note 40", "اقتصادي", "مبتدئ", "AMOLED"]
+  }
+]
