@@ -98,15 +98,15 @@ export default function ProductDetails() {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 grid items-center justify-center">
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Images */}
           <div className="space-y-4">
-            <div className="aspect-square rounded-lg overflow-hidden bg-muted">
+            <div className="aspect-square w-fit p-4 rounded-lg overflow-hidden bg-muted">
               <img 
                 src={getImageForPhone(phone)}
                 alt={phone.name}
-                className="w-full h-full object-cover"
+                className="w-fit object-cover"
               />
             </div>
           </div>
