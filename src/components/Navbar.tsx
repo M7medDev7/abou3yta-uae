@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Search, Heart, Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { useFavorites } from '@/hooks/useFavorites';
+import { useFavorites } from '@/hooks/FavouritesContext';
 import { useTheme } from '@/hooks/useTheme';
 import { useDebounce } from '@/hooks/useDebounce';
 import { SearchResultsDropdown } from './SearchResultsDropdown';

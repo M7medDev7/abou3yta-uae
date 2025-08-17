@@ -4,7 +4,7 @@ import { ArrowRight, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ProductCard } from '@/components/ProductCard';
 import { getAllPhones } from '@/lib/phones';
-import { useFavorites } from '@/hooks/useFavorites';
+import { useFavorites } from '@/hooks/FavouritesContext';
 
 export default function Favorites() {
   const { favorites, clearFavorites } = useFavorites();

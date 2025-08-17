@@ -7,7 +7,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { getPhoneBySlug } from '@/lib/phones';
 import { PhoneItem } from '@/types/phone';
-import { useFavorites } from '@/hooks/useFavorites';
+import { useFavorites } from '@/hooks/FavouritesContext';
 import { BuyNowModal } from '@/components/BuyNowModal';
 import { useToast } from '@/hooks/use-toast';
 import s24Image from '@/assets/phones/s24-ultra-black.jpg';

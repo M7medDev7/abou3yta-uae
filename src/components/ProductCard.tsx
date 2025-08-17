@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { PhoneItem } from '@/types/phone';
-import { useFavorites } from '@/hooks/useFavorites';
+import { useFavorites } from '@/hooks/FavouritesContext';
 import { useToast } from '@/hooks/use-toast';
 import { QuickViewModal } from './QuickViewModal';
 import s24Image from '@/assets/phones/s24-ultra-black.jpg';
