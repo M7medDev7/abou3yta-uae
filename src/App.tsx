@@ -7,7 +7,6 @@ import Index from "./pages/Index";
 import ProductDetails from "./pages/ProductDetails";
 import Favorites from "./pages/Favorites";
 import NotFound from "./pages/NotFound";
-import { Analytics } from "@vercel/analytics/next"
 
 const queryClient = new QueryClient();
 
@@ -26,7 +25,6 @@ const App = () => (
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
-    <Analytics />
   </QueryClientProvider>
 );
 
