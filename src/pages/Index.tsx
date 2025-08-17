@@ -41,19 +41,8 @@ const Index = () => {
             مرحباً بك في <span className="phone-hero-gradient bg-clip-text text-transparent">أبو عيطه</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-slide-up">
-            اكتشف أحدث الهواتف الذكية من أفضل العلامات التجارية بأسعار لا تقاوم
+            اكتشف أحدث الهواتف الذكية من أفضل العلامات التجارية بأسعار تنافسية
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Badge variant="outline" className="text-lg py-2 px-4">
-              ضمان أصلي
-            </Badge>
-            <Badge variant="outline" className="text-lg py-2 px-4">
-              توصيل مجاني
-            </Badge>
-            <Badge variant="outline" className="text-lg py-2 px-4">
-              أسعار منافسة
-            </Badge>
-          </div>
         </div>
       </section>
 
@@ -97,7 +86,7 @@ const Index = () => {
               </Button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-6">
               {filteredPhones.map((phone) => (
                 <ProductCard key={phone.id} phone={phone} />
               ))}
@@ -115,7 +104,7 @@ const Index = () => {
                 أبو عيطه
               </h3>
               <p className="text-muted-foreground">
-                متجرك الموثوق للهواتف الذكية في مصر
+                متجرك الموثوق للهواتف الذكية
               </p>
             </div>
             
@@ -123,7 +112,7 @@ const Index = () => {
               <h4 className="font-semibold mb-4">روابط سريعة</h4>
               <div className="space-y-2">
                 <a href="#" className="block text-muted-foreground hover:text-foreground">الرئيسية</a>
-                <a href="#" className="block text-muted-foreground hover:text-foreground">المفضلة</a>
+                <a href="/favorites" className="block text-muted-foreground hover:text-foreground">المفضلة</a>
                 <a href="#" className="block text-muted-foreground hover:text-foreground">من نحن</a>
               </div>
             </div>
@@ -131,7 +120,7 @@ const Index = () => {
             <div>
               <h4 className="font-semibold mb-4">تواصل معنا</h4>
               <a 
-                href={`https://wa.me/01020217073`}
+                href={`https://wa.me/+201020217073`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"

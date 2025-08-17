@@ -1,5 +1,4 @@
-[
-  {
+{
     "id": "s24-ultra",
     "slug": "samsung-galaxy-s24-ultra",
     "brand": "Samsung",
@@ -29,4 +28,3 @@
     "availability": "in_stock",
     "keywords": ["سامسونج", "S24", "S24 Ultra", "جالاكسي", "فلاجشيب", "تيتانيوم"]
   }
-]

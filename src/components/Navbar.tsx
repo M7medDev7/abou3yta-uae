@@ -97,7 +97,7 @@ export function Navbar({ onBrandFilter, selectedBrand }: NavbarProps) {
 
         {/* Brand Categories */}
         <div className="border-t py-2">
-          <div className="flex items-center space-x-4 rtl:space-x-reverse overflow-x-auto">
+          <div className="brand-categories flex items-center space-x-4 rtl:space-x-reverse overflow-x-auto">
             <Button
               variant={selectedBrand === null ? "default" : "ghost"}
               size="sm"

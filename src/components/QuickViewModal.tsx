@@ -5,7 +5,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import { Badge } from '@/components/ui/badge';
 import { PhoneItem } from '@/types/phone';
 import { BuyNowModal } from './BuyNowModal';
-import s24Image from '@/assets/phones/s24-ultra-black.jpg';
+import s24Image from '@/assets/phones/s24-ultra-black.webp';
 import iphoneImage from '@/assets/phones/iphone15-pro-titanium.jpg';
 import xiaomiImage from '@/assets/phones/xiaomi14-ultra-black.jpg';
 import oppoImage from '@/assets/phones/oppo-findx7-black.jpg';
@@ -54,7 +54,7 @@ export function QuickViewModal({ phone, isOpen, onClose }: QuickViewModalProps) 
               <img 
                 src={getImageForPhone(phone)}
                 alt={phone.name}
-                className="w-full rounded-lg"
+                className="w-fit rounded-lg"
               />
             </div>
 

@@ -8,7 +8,7 @@ import { PhoneItem } from '@/types/phone';
 import { useFavorites } from '@/hooks/FavouritesContext';
 import { useToast } from '@/hooks/use-toast';
 import { QuickViewModal } from './QuickViewModal';
-import s24Image from '@/assets/phones/s24-ultra-black.jpg';
+import s24Image from '@/assets/phones/s24-ultra-black.webp';
 import iphoneImage from '@/assets/phones/iphone15-pro-titanium.jpg';
 import xiaomiImage from '@/assets/phones/xiaomi14-ultra-black.jpg';
 import oppoImage from '@/assets/phones/oppo-findx7-black.jpg';
@@ -54,12 +54,14 @@ export function ProductCard({ phone }: ProductCardProps) {
 
   return (
     <>
-      <Card className="group overflow-hidden phone-card-shadow hover:phone-glow-shadow transition-all duration-300 animate-slide-up">
+      <Card className="group p-3 overflow-hidden phone-card-shadow hover:phone-glow-shadow transition-all duration-300 animate-slide-up">
         <div className="relative">
           <img 
             src={getImageForPhone(phone)}
             alt={phone.name}
-            className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+            width={225}
+            height={0}
+            className=" object-fill p-1 group-hover:scale-105 transition-transform duration-300"
           />
           
           {/* Availability Badge */}
@@ -83,7 +85,7 @@ export function ProductCard({ phone }: ProductCardProps) {
           </Button>
         </div>
 
-        <CardContent className="p-4">
+        <CardContent className="p-2">
           <h3 className="font-semibold text-lg mb-2 line-clamp-2">{phone.name}</h3>
           
           <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
