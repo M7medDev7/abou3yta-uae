@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react';
 import { Navbar } from '@/components/Navbar';
 import { ProductCard } from '@/components/ProductCard';
 import { getAllPhones } from '@/lib/phones';
+import { LocalStorageStatus } from '@/components/LocalStorageStatus';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
@@ -140,8 +141,9 @@ const Index = () => {
             </div>
           </div>
           
-          <div className="border-t mt-8 pt-8 text-center text-muted-foreground">
-            <p>&copy; 2024 أبو عيطه. جميع الحقوق محفوظة.</p>
+          <div className="border-t mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-muted-foreground">&copy; 2024 أبو عيطه. جميع الحقوق محفوظة.</p>
+            <LocalStorageStatus />
           </div>
         </div>
       </footer>

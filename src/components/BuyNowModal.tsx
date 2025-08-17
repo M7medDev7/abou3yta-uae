@@ -179,7 +179,8 @@ ${formData.phoneSecondary ? `الهاتف الاحتياطي: ${formData.phoneSe
           <Button 
             type="submit" 
             disabled={isSubmitting}
-            className="w-full phone-hero-gradient hover:opacity-90 focus-ring"
+            variant="hero"
+            className="w-full focus-ring"
           >
             <MessageCircle className="mr-2 h-4 w-4" />
             {isSubmitting ? 'جارٍ الإرسال...' : 'تأكيد الطلب عبر واتساب'}

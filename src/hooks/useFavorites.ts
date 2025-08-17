@@ -10,10 +10,16 @@ export function useFavorites() {
     try {
       const saved = localStorage.getItem(FAVORITES_KEY);
       if (saved) {
-        setFavorites(JSON.parse(saved));
+        const parsed = JSON.parse(saved);
+        // Ensure it's an array
+        if (Array.isArray(parsed)) {
+          setFavorites(parsed);
+        }
       }
     } catch (error) {
       console.error('Error loading favorites:', error);
+      // Reset to empty array if there's an error
+      setFavorites([]);
     }
   }, []);
 

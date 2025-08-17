@@ -57,7 +57,7 @@ export default function Favorites() {
               لم تقم بإضافة أي هواتف إلى قائمة المفضلة بعد. ابدأ بتصفح مجموعتنا الرائعة من الهواتف الذكية.
             </p>
             <Link to="/">
-              <Button className="phone-hero-gradient hover:opacity-90 focus-ring">
+              <Button variant="hero" className="focus-ring">
                 تصفح الهواتف
               </Button>
             </Link>

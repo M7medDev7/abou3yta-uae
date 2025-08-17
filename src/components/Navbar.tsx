@@ -4,6 +4,7 @@ import { Search, Heart, Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useFavorites } from '@/hooks/useFavorites';
+import { useTheme } from '@/hooks/useTheme';
 import { useDebounce } from '@/hooks/useDebounce';
 import { SearchResultsDropdown } from './SearchResultsDropdown';
 import { getAllPhones } from '@/lib/phones';
@@ -17,7 +18,7 @@ interface NavbarProps {
 export function Navbar({ onBrandFilter, selectedBrand }: NavbarProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearchFocused, setIsSearchFocused] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const { isDarkMode, toggleTheme } = useTheme();
   const { favoritesCount } = useFavorites();
   
   const debouncedSearch = useDebounce(searchQuery, 200);
@@ -35,9 +36,8 @@ export function Navbar({ onBrandFilter, selectedBrand }: NavbarProps) {
     { name: 'Infinix', label: 'إنفينكس' }
   ];
 
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-    document.documentElement.classList.toggle('dark');
+  const toggleThemeHandler = () => {
+    toggleTheme();
   };
 
   return (
@@ -89,7 +89,7 @@ export function Navbar({ onBrandFilter, selectedBrand }: NavbarProps) {
               </Button>
             </Link>
             
-            <Button variant="ghost" size="sm" onClick={toggleTheme} className="focus-ring">
+            <Button variant="ghost" size="sm" onClick={toggleThemeHandler} className="focus-ring">
               {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
           </div>

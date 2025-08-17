@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { PhoneItem } from '@/types/phone';
 import { useFavorites } from '@/hooks/useFavorites';
+import { useToast } from '@/hooks/use-toast';
 import { QuickViewModal } from './QuickViewModal';
 import s24Image from '@/assets/phones/s24-ultra-black.jpg';
 import iphoneImage from '@/assets/phones/iphone15-pro-titanium.jpg';
@@ -19,6 +20,7 @@ interface ProductCardProps {
 export function ProductCard({ phone }: ProductCardProps) {
   const [showQuickView, setShowQuickView] = useState(false);
   const { isFavorite, toggleFavorite } = useFavorites();
+  const { toast } = useToast();
 
   // Simple mapping for demo
   const getImageForPhone = (phone: PhoneItem) => {
@@ -32,7 +34,16 @@ export function ProductCard({ phone }: ProductCardProps) {
   const handleFavoriteClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
+    const wasAlreadyFavorite = isFavorite(phone.id);
     toggleFavorite(phone.id);
+    
+    // Show toast notification
+    toast({
+      title: wasAlreadyFavorite ? "تمت الإزالة من المفضلة" : "تم إضافة إلى المفضلة",
+      description: wasAlreadyFavorite 
+        ? `تم حذف ${phone.name} من قائمة المفضلة` 
+        : `تم إضافة ${phone.name} إلى قائمة المفضلة`,
+    });
   };
 
   const handleQuickViewClick = (e: React.MouseEvent) => {

@@ -102,7 +102,8 @@ export function QuickViewModal({ phone, isOpen, onClose }: QuickViewModalProps) 
               <Button 
                 onClick={handleBuyNow}
                 disabled={phone.availability !== 'in_stock'}
-                className="w-full phone-hero-gradient hover:opacity-90 focus-ring"
+                variant="hero"
+                className="w-full focus-ring"
               >
                 <ShoppingCart className="mr-2 h-4 w-4" />
                 اشتري الآن

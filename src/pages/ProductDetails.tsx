@@ -156,7 +156,8 @@ export default function ProductDetails() {
                 onClick={() => setShowBuyNow(true)}
                 disabled={phone.availability !== 'in_stock'}
                 size="lg"
-                className="w-full phone-hero-gradient hover:opacity-90 focus-ring"
+                variant="hero"
+                className="w-full focus-ring"
               >
                 <ShoppingCart className="mr-2 h-5 w-5" />
                 اشتري الآن
