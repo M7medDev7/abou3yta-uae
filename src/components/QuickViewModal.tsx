@@ -5,11 +5,6 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import { Badge } from '@/components/ui/badge';
 import { PhoneItem } from '@/types/phone';
 import { BuyNowModal } from './BuyNowModal';
-import s24Image from '@/assets/phones/s24-ultra-black.webp';
-import iphoneImage from '@/assets/phones/iphone15-pro-titanium.jpg';
-import xiaomiImage from '@/assets/phones/xiaomi14-ultra-black.jpg';
-import oppoImage from '@/assets/phones/oppo-findx7-black.jpg';
-
 interface QuickViewModalProps {
   phone: PhoneItem;
   isOpen: boolean;
@@ -18,15 +13,6 @@ interface QuickViewModalProps {
 
 export function QuickViewModal({ phone, isOpen, onClose }: QuickViewModalProps) {
   const [showBuyNow, setShowBuyNow] = useState(false);
-
-  // Simple mapping for demo
-  const getImageForPhone = (phone: PhoneItem) => {
-    if (phone.brand === 'Samsung') return s24Image;
-    if (phone.brand === 'Apple') return iphoneImage;
-    if (phone.brand === 'Xiaomi') return xiaomiImage;
-    if (phone.brand === 'Oppo') return oppoImage;
-    return s24Image; // fallback
-  };
 
   const handleBuyNow = () => {
     setShowBuyNow(true);
@@ -52,7 +38,7 @@ export function QuickViewModal({ phone, isOpen, onClose }: QuickViewModalProps) 
             {/* Image */}
             <div className="space-y-4">
               <img 
-                src={getImageForPhone(phone)}
+                src={phone.images[phone.colors[0].key]}
                 alt={phone.name}
                 className="w-fit rounded-lg"
               />
@@ -62,12 +48,12 @@ export function QuickViewModal({ phone, isOpen, onClose }: QuickViewModalProps) 
             <div className="space-y-4">
               <div>
                 <div className="text-3xl font-bold text-primary mb-2">
-                  {phone.price.toLocaleString()} {phone.currency}
+                  {phone.price.toLocaleString()} جنيه مصري
                 </div>
                 <Badge 
-                  variant={phone.availability === 'in_stock' ? 'default' : 'destructive'}
+                  variant={phone.available === true ? 'default' : 'destructive'}
                 >
-                  {phone.availability === 'in_stock' ? 'متاح' : 'غير متاح'}
+                  {phone.available === true ? 'متاح' : 'غير متاح'}
                 </Badge>
               </div>
 
@@ -77,7 +63,7 @@ export function QuickViewModal({ phone, isOpen, onClose }: QuickViewModalProps) 
                 <div className="grid grid-cols-1 gap-2 text-sm">
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">الشاشة:</span>
-                    <span>{phone.specs.screen}</span>
+                    <span>{phone.specs.screen} بوصة</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">المعالج:</span>
@@ -85,15 +71,15 @@ export function QuickViewModal({ phone, isOpen, onClose }: QuickViewModalProps) 
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">الذاكرة:</span>
-                    <span>{phone.shortSpecs.ram}</span>
+                    <span>{phone.variants[0].ram}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">التخزين:</span>
-                    <span>{phone.shortSpecs.storage}</span>
+                    <span>{phone.variants[0].storage}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">البطارية:</span>
-                    <span>{phone.specs.battery}</span>
+                    <span>{phone.specs.battery} مللي امبير</span>
                   </div>
                 </div>
               </div>
@@ -101,7 +87,7 @@ export function QuickViewModal({ phone, isOpen, onClose }: QuickViewModalProps) 
               {/* Buy Button */}
               <Button 
                 onClick={handleBuyNow}
-                disabled={phone.availability !== 'in_stock'}
+                disabled={phone.available !== true}
                 variant="hero"
                 className="w-full focus-ring"
               >

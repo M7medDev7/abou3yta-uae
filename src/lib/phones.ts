@@ -7,7 +7,7 @@ export function getAllPhones(): PhoneItem[] {
 
 export function getPhoneBySlug(slug: string): PhoneItem | null {
   const phones = getAllPhones();
-  return phones.find(phone => phone.slug === slug) || null;
+  return phones.find(phone => phone.id === slug) || null;
 }
 
 export function getPhonesByBrand(brand: string): PhoneItem[] {
@@ -17,7 +17,7 @@ export function getPhonesByBrand(brand: string): PhoneItem[] {
 
 export function getAvailablePhones(): PhoneItem[] {
   const phones = getAllPhones();
-  return phones.filter(phone => phone.availability === 'in_stock');
+  return phones.filter(phone => phone.available === true);
 }
 
 export function getBrands(): string[] {

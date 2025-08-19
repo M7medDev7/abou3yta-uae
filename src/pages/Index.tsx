@@ -20,7 +20,7 @@ const Index = () => {
     }
     
     if (showOnlyAvailable) {
-      phones = phones.filter(phone => phone.availability === 'in_stock');
+      phones = phones.filter(phone => phone.available === true);
     }
     
     return phones;

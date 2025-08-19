@@ -10,10 +10,6 @@ import { PhoneItem } from '@/types/phone';
 import { useFavorites } from '@/hooks/FavouritesContext';
 import { BuyNowModal } from '@/components/BuyNowModal';
 import { useToast } from '@/hooks/use-toast';
-import s24Image from '@/assets/phones/s24-ultra-black.webp';
-import iphoneImage from '@/assets/phones/iphone15-pro-titanium.jpg';
-import xiaomiImage from '@/assets/phones/xiaomi14-ultra-black.jpg';
-import oppoImage from '@/assets/phones/oppo-findx7-black.jpg';
 
 export default function ProductDetails() {
   const { slug } = useParams<{ slug: string }>();
@@ -23,17 +19,21 @@ export default function ProductDetails() {
   const [selectedColor, setSelectedColor] = useState<string>('');
   const [showBuyNow, setShowBuyNow] = useState(false);
   const { isFavorite, toggleFavorite } = useFavorites();
+  const [phoneImage, setPhoneImage] = useState<string | null>(null);
 
   useEffect(() => {
     if (slug) {
       const foundPhone = getPhoneBySlug(slug);
       if (foundPhone) {
         setPhone(foundPhone);
-        setSelectedColor(foundPhone.colors[0]?.name || '');
+        setSelectedColor(foundPhone.colors[0]?.label || '');
+        setPhoneImage(foundPhone.images[`${foundPhone.colors[0].key}`]);
+        console.log(phoneImage);
       } else {
         navigate('/404');
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slug, navigate]);
 
   if (!phone) {
@@ -47,22 +47,13 @@ export default function ProductDetails() {
     );
   }
 
-  // Simple mapping for demo
-  const getImageForPhone = (phone: PhoneItem) => {
-    if (phone.brand === 'Samsung') return s24Image;
-    if (phone.brand === 'Apple') return iphoneImage;
-    if (phone.brand === 'Xiaomi') return xiaomiImage;
-    if (phone.brand === 'Oppo') return oppoImage;
-    return s24Image; // fallback
-  };
-
-  const selectedColorData = phone.colors.find(color => color.name === selectedColor) || phone.colors[0];
+  const selectedColorData = phone.colors.find(color => color.label === selectedColor) || phone.colors[0].label;
 
   const handleShare = async () => {
     try {
       await navigator.share({
         title: phone.name,
-        text: `تحقق من ${phone.name} بسعر ${phone.price.toLocaleString()} ${phone.currency}`,
+        text: `تحقق من ${phone.name} بسعر ${phone.price.toLocaleString()} EGP`,
         url: window.location.href
       });
     } catch (error) {
@@ -98,13 +89,13 @@ export default function ProductDetails() {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-8 grid items-center justify-center">
-        <div className="grid lg:grid-cols-2 gap-12">
+      <div className="container mx-auto px-4 py-8 flex items-center justify-center">
+        <div className="grid lg:grid-cols-2 gap-12 w-full">
           {/* Images */}
           <div className="space-y-4">
             <div className="aspect-square w-fit p-4 rounded-lg overflow-hidden bg-muted">
               <img 
-                src={getImageForPhone(phone)}
+                src={phoneImage}
                 alt={phone.name}
                 className="w-fit object-cover"
               />
@@ -115,18 +106,18 @@ export default function ProductDetails() {
           <div className="space-y-6">
             <div>
               <h1 className="text-3xl md:text-4xl font-bold mb-2">{phone.name}</h1>
-              <p className="text-muted-foreground text-lg">{phone.brand} {phone.model}</p>
+              {/* <p className="text-muted-foreground text-lg">{phone.brand} {phone.model}</p> */}
             </div>
 
             <div className="flex items-center gap-4">
               <div className="text-3xl font-bold text-primary">
-                {phone.price.toLocaleString()} {phone.currency}
+                {phone.price.toLocaleString()} EGP
               </div>
               <Badge 
-                variant={phone.availability === 'in_stock' ? 'default' : 'destructive'}
+                variant={phone.available === true ? 'default' : 'destructive'}
                 className="text-sm"
               >
-                {phone.availability === 'in_stock' ? 'متاح' : 'غير متاح'}
+                {phone.available === true ? 'متاح' : 'غير متاح'}
               </Badge>
             </div>
 
@@ -136,15 +127,15 @@ export default function ProductDetails() {
               <div className="flex gap-2">
                 {phone.colors.map((color) => (
                   <button
-                    key={color.name}
-                    onClick={() => setSelectedColor(color.name)}
+                    key={color.key}
+                    onClick={() => {setSelectedColor(color.label); setPhoneImage(phone.images[color.key])}}
                     className={`w-8 h-8 rounded-full border-2 transition-all ${
-                      selectedColor === color.name 
+                      selectedColor === color.key 
                         ? 'border-primary ring-2 ring-primary/30' 
                         : 'border-border hover:border-primary/50'
                     }`}
                     style={{ backgroundColor: color.code }}
-                    title={color.name}
+                    title={color.label}
                   />
                 ))}
               </div>
@@ -154,7 +145,7 @@ export default function ProductDetails() {
             <div className="space-y-3">
               <Button 
                 onClick={() => setShowBuyNow(true)}
-                disabled={phone.availability !== 'in_stock'}
+                disabled={phone.available !== true}
                 size="lg"
                 variant="hero"
                 className="w-full focus-ring"
@@ -220,9 +211,9 @@ export default function ProductDetails() {
                   <CardContent className="p-6">
                     <ul className="space-y-2">
                       {phone.pros.map((pro, index) => (
-                        <li key={index} className="flex items-start gap-2">
+                        <li key={index} className="flex items-start justify-end gap-2 text-right">
+                          <span className='leading-[1.6]'>{pro}</span>
                           <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                          <span>{pro}</span>
                         </li>
                       ))}
                     </ul>
@@ -235,9 +226,9 @@ export default function ProductDetails() {
                   <CardContent className="p-6">
                     <ul className="space-y-2">
                       {phone.cons.map((con, index) => (
-                        <li key={index} className="flex items-start gap-2">
+                        <li key={index} className="flex items-start justify-end gap-2 text-right">
+                          <span className=''>{con}</span>
                           <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                          <span>{con}</span>
                         </li>
                       ))}
                     </ul>

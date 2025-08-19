@@ -19,11 +19,10 @@ export function searchPhones(phones: PhoneItem[], query: string): PhoneItem[] {
     const searchableText = [
       phone.name,
       phone.brand,
-      phone.model,
-      phone.shortSpecs.ram,
-      phone.shortSpecs.storage,
-      phone.shortSpecs.color,
-      ...phone.colors.map(color => color.name),
+      phone.variants[0].ram,
+      phone.variants[0].storage,
+      phone.colors[0].key,
+      ...phone.colors.map(color => color.key),
       ...(phone.keywords || [])
     ].join(' ');
 
