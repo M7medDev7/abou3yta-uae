@@ -69,7 +69,7 @@ export function BuyNowModal({ phone, isOpen, onClose }: BuyNowModalProps) {
 مرحباً، أريد طلب هاتف:
 
 📱 *${phone.name}*
-💰 السعر: ${phone.price.toLocaleString()} جنيه مصري
+💰 السعر: ${phone.variants[0].price.toLocaleString()} جنيه مصري
 🔧 المواصفات: ${phone.variants[0].ram} • ${phone.variants[0].storage} • ${phone.colors[0].label}
 
 👤 *بيانات العميل:*

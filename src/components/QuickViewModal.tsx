@@ -48,7 +48,7 @@ export function QuickViewModal({ phone, isOpen, onClose }: QuickViewModalProps) 
             <div className="space-y-4">
               <div>
                 <div className="text-3xl font-bold text-primary mb-2">
-                  {phone.price.toLocaleString()} جنيه مصري
+                  {phone.variants[0].price.toLocaleString()} جنيه مصري
                 </div>
                 <Badge 
                   variant={phone.available === true ? 'default' : 'destructive'}

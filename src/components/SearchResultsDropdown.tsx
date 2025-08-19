@@ -40,7 +40,7 @@ export function SearchResultsDropdown({ results, query, onClose }: SearchResults
                 {phone.brand} • {phone.variants[0].ram} • {phone.variants[0].storage}
               </p>
               <p className="text-xs font-semibold text-primary">
-                {phone.price.toLocaleString()} جنيه مصري
+                {phone.variants[0].price.toLocaleString()} جنيه مصري
               </p>
             </div>
           </Link>

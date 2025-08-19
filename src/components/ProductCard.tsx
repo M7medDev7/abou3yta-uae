@@ -83,7 +83,7 @@ export function ProductCard({ phone }: ProductCardProps) {
           </div>
 
           <div className="text-2xl font-bold text-primary mb-4">
-            {phone.price.toLocaleString()} جنيه مصري
+            {phone.variants[0].price.toLocaleString()} جنيه مصري
           </div>
         </CardContent>
 

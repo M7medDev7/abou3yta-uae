@@ -33,7 +33,6 @@ export interface PhoneItem {
   id: string;           // unique id, e.g. 's24-ultra'
   name: string;         // URL slug, e.g. 'samsung-galaxy-s24-ultra'
   brand: string;        // 'Samsung' | 'Oppo' | 'Xiaomi' | etc.
-  price: number;        // 'Galaxy S24 Ultra'
   available: boolean;         // Arabic display name: 'سامسونج جالاكسي S24 ألترا'
   images: PhoneImages;
   colors: PhoenColors[];        // in EGP

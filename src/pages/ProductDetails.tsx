@@ -17,6 +17,7 @@ export default function ProductDetails() {
   const { toast } = useToast();
   const [phone, setPhone] = useState<PhoneItem | null>(null);
   const [selectedColor, setSelectedColor] = useState<string>('');
+  const [selectedVariant, setSelectedVariant] = useState<string>('');
   const [showBuyNow, setShowBuyNow] = useState(false);
   const { isFavorite, toggleFavorite } = useFavorites();
   const [phoneImage, setPhoneImage] = useState<string | null>(null);
@@ -53,7 +54,7 @@ export default function ProductDetails() {
     try {
       await navigator.share({
         title: phone.name,
-        text: `تحقق من ${phone.name} بسعر ${phone.price.toLocaleString()} EGP`,
+        text: `تحقق من ${phone.name} بسعر ${phone.variants[0].price.toLocaleString()} EGP`,
         url: window.location.href
       });
     } catch (error) {
@@ -111,7 +112,7 @@ export default function ProductDetails() {
 
             <div className="flex items-center gap-4">
               <div className="text-3xl font-bold text-primary">
-                {phone.price.toLocaleString()} EGP
+                {phone.variants[0].price.toLocaleString()} EGP
               </div>
               <Badge 
                 variant={phone.available === true ? 'default' : 'destructive'}
@@ -139,6 +140,22 @@ export default function ProductDetails() {
                   />
                 ))}
               </div>
+            </div>
+
+            <div className="variants-group flex items-center flex-wrap gap-3">
+              {phone.variants.map((variant) => (
+                <button
+                  key={variant.id}
+                  onClick={() => setSelectedVariant(variant.id)}
+                  className={`p-4 rounded-lg border-2 max-sm:w-full font-semibold transition-all ${
+                    selectedVariant === variant.id
+                    ? 'border-primary ring-2 ring-primary/30 dark:bg-[#007bff3e] bg-[#007bff29] text-primary dark:text-white' 
+                    : 'border-border hover:border-primary/50 dark:text-white text-black'
+                  }`}
+                >
+                  مساحة {variant.storage} / رام {variant.ram}
+                </button>
+              ))}
             </div>
 
             {/* Action Buttons */}
