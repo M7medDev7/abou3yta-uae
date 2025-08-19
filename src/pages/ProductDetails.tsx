@@ -93,11 +93,11 @@ export default function ProductDetails() {
         <div className="grid lg:grid-cols-2 gap-12 w-full">
           {/* Images */}
           <div className="space-y-4">
-            <div className="aspect-square w-fit p-4 rounded-lg overflow-hidden bg-muted">
+            <div className="aspect-square w-5/6 max-md:w-full p-4 rounded-lg overflow-hidden bg-muted">
               <img 
                 src={phoneImage}
                 alt={phone.name}
-                className="w-fit object-cover"
+                className="w-full object-cover"
               />
             </div>
           </div>

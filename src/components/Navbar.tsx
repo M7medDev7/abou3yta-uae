@@ -28,12 +28,12 @@ export function Navbar({ onBrandFilter, selectedBrand }: NavbarProps) {
     : [];
 
   const brands = [
-    { name: 'Samsung', label: 'سامسونج' },
-    { name: 'Apple', label: 'آبل' },
-    { name: 'Xiaomi', label: 'شاومي' },
-    { name: 'Oppo', label: 'أوبو' },
-    { name: 'Realme', label: 'ريلمي' },
-    { name: 'Infinix', label: 'إنفينكس' }
+    { name: 'samsung', label: 'سامسونج' },
+    { name: 'apple', label: 'آبل' },
+    { name: 'xiaomi', label: 'شاومي' },
+    { name: 'oppo', label: 'أوبو' },
+    { name: 'realme', label: 'ريلمي' },
+    { name: 'infinix', label: 'إنفينكس' }
   ];
 
   const toggleThemeHandler = () => {
