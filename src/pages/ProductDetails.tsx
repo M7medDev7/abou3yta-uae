@@ -17,7 +17,7 @@ export default function ProductDetails() {
   const { toast } = useToast();
   const [phone, setPhone] = useState<PhoneItem | null>(null);
   const [selectedColor, setSelectedColor] = useState<string>('');
-  const [selectedVariant, setSelectedVariant] = useState<string>('');
+  const [selectedVariant, setSelectedVariant] = useState<number>(0);
   const [showBuyNow, setShowBuyNow] = useState(false);
   const { isFavorite, toggleFavorite } = useFavorites();
   const [phoneImage, setPhoneImage] = useState<string | null>(null);
@@ -54,7 +54,7 @@ export default function ProductDetails() {
     try {
       await navigator.share({
         title: phone.name,
-        text: `تحقق من ${phone.name} بسعر ${phone.variants[0].price.toLocaleString()} EGP`,
+        text: `تحقق من ${phone.name} بسعر ${phone[selectedVariant]} EGP`,
         url: window.location.href
       });
     } catch (error) {
@@ -112,7 +112,7 @@ export default function ProductDetails() {
 
             <div className="flex items-center gap-4">
               <div className="text-3xl font-bold text-primary">
-                {phone.variants[0].price.toLocaleString()} EGP
+                {phone.variants[selectedVariant].price.toLocaleString()} EGP
               </div>
               <Badge 
                 variant={phone.available === true ? 'default' : 'destructive'}

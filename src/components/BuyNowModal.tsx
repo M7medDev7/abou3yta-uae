@@ -16,66 +16,66 @@ interface BuyNowModalProps {
 interface FormData {
   name: string;
   phonePrimary: string;
-  phoneSecondary: string;
+  color: string;
+  variant: string;
 }
 
 const WHATSAPP_NUMBER = '+201020217073';
 
 export function BuyNowModal({ phone, isOpen, onClose }: BuyNowModalProps) {
+  const [selectedColor, setSelectedColor] = useState<number>(0);
+  const [selectedVariant, setSelectedVariant] = useState<number>(0);
   const { toast } = useToast();
   const [formData, setFormData] = useState<FormData>({
     name: '',
     phonePrimary: '',
-    phoneSecondary: ''
+    color: '',
+    variant: '',
   });
   const [errors, setErrors] = useState<Partial<FormData>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-
+  
   const validatePhone = (phone: string): boolean => {
     return /^01[0-2,5]{1}[0-9]{8}$/.test(phone) && phone.length === 11;
   };
-
+  
   const validateForm = (): boolean => {
     const newErrors: Partial<FormData> = {};
-
+    
     if (!formData.name.trim()) {
       newErrors.name = 'الاسم الرباعي مطلوب';
     }
-
+    
     if (!formData.phonePrimary.trim()) {
       newErrors.phonePrimary = 'رقم الهاتف الأساسي مطلوب';
     } else if (!validatePhone(formData.phonePrimary)) {
       newErrors.phonePrimary = 'رقم الهاتف غير صحيح';
     }
-
-    if (formData.phoneSecondary && !validatePhone(formData.phoneSecondary)) {
-      newErrors.phoneSecondary = 'رقم الهاتف غير صحيح';
-    }
-
+    
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!validateForm()) return;
-
+    
     setIsSubmitting(true);
-
+    
     try {
       // Create WhatsApp message
       const message = `
 مرحباً، أريد طلب هاتف:
 
 📱 *${phone.name}*
-💰 السعر: ${phone.variants[0].price.toLocaleString()} جنيه مصري
-🔧 المواصفات: ${phone.variants[0].ram} • ${phone.variants[0].storage} • ${phone.colors[0].label}
+💰 السعر: ${phone.variants[Number(selectedVariant)].price.toLocaleString()} جنيه مصري
+🔧 المواصفات: ${phone.variants[Number(selectedVariant)].ram} • ${phone.variants[Number(selectedVariant)].storage} • ${phone.colors[`${selectedColor}`].label}
+
 
 👤 *بيانات العميل:*
 الاسم: ${formData.name}
 الهاتف الأساسي: ${formData.phonePrimary}
-${formData.phoneSecondary ? `الهاتف الاحتياطي: ${formData.phoneSecondary}` : ''}
 
 أرجو التواصل معي لإتمام الطلب، شكراً.
       `.trim();
@@ -91,7 +91,7 @@ ${formData.phoneSecondary ? `الهاتف الاحتياطي: ${formData.phoneSe
       });
 
       // Reset form and close modal
-      setFormData({ name: '', phonePrimary: '', phoneSecondary: '' });
+      setFormData({ name: '', phonePrimary: '', color: '', variant: '' });
       onClose();
       
     } catch (error) {
@@ -160,21 +160,42 @@ ${formData.phoneSecondary ? `الهاتف الاحتياطي: ${formData.phoneSe
             )}
           </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="phoneSecondary">رقم هاتف احتياطي</Label>
-            <Input
-              id="phoneSecondary"
-              type="tel"
-              value={formData.phoneSecondary}
-              onChange={(e) => handleInputChange('phoneSecondary', e.target.value)}
-              placeholder="01xxxxxxxxx (اختياري)"
-              className={errors.phoneSecondary ? 'border-destructive' : ''}
-              dir="ltr"
-            />
-            {errors.phoneSecondary && (
-              <p className="text-sm text-destructive">{errors.phoneSecondary}</p>
-            )}
+          <div className="space-y-3">
+              <h3 className="font-semibold">اللون: {phone.colors[selectedColor].label}</h3>
+              <div className="flex gap-2">
+                {phone.colors.map((color, index) => (
+                  <button
+                    key={color.key}
+                    type="button"
+                    onClick={() => {setSelectedColor(index); handleInputChange('color', color.label)}}
+                    className={`w-8 h-8 rounded-full border-2 transition-all ${
+                      selectedColor === index 
+                        ? 'border-primary ring-2 ring-primary/30' 
+                        : 'border-border hover:border-primary/50'
+                    }`}
+                    style={{ backgroundColor: color.code }}
+                    title={color.label}
+                  />
+                ))}
+              </div>
           </div>
+
+          <div className="variants-group flex items-center flex-wrap gap-2">
+              {phone.variants.map((variant) => (
+                <button
+                  key={variant.id}
+                  type='button'
+                  onClick={() => {setSelectedVariant(variant.id); handleInputChange('variant', String(variant.id))}}
+                  className={`p-2.5 rounded-lg border-2 max-sm:w-full font-semibold transition-all ${
+                    selectedVariant === variant.id
+                    ? 'border-primary ring-2 ring-primary/30 dark:bg-[#007bff3e] bg-[#007bff29] text-primary dark:text-white' 
+                    : 'border-border hover:border-primary/50 dark:text-white text-black'
+                  }`}
+                >
+                  {variant.storage} / {variant.ram}
+                </button>
+              ))}
+            </div>
 
           <Button 
             type="submit" 

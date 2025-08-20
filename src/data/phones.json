@@ -13,7 +13,7 @@
       { "key": "brown","code": "#45403a" ,"label": "بني" }
     ],
     "variants": [
-      { "id": "v1", "ram": "8GB", "storage": "256GB", "price": 11300 }
+      { "id": 0, "ram": "8GB", "storage": "256GB", "price": 11300 }
     ],
     "specs": {
       "processor": "Snapdragon 6s Gen1",
@@ -62,9 +62,9 @@
       { "key": "white-titanium","code": "#e5e6e3" ,"label": "التيتانيوم الأبيض" }
     ],
     "variants": [
-      { "id": "v1", "ram": "8GB", "storage": "256GB", "price": 57600 },
-      { "id": "v2", "ram": "8GB", "storage": "512GB", "price": 67200 },
-      { "id": "v3", "ram": "8GB", "storage": "1024GB", "price": 76800 }
+      { "id": 0, "ram": "8GB", "storage": "256GB", "price": 57600 },
+      { "id": 1, "ram": "8GB", "storage": "512GB", "price": 67200 },
+      { "id": 2, "ram": "8GB", "storage": "1024GB", "price": 76800 }
     ],
     "specs": {
       "processor": "Apple A18 Pro",

@@ -11,7 +11,7 @@ export interface PhoneImages {
 }
 
 export interface PhoneVariants {
-  id: string;
+  id: number;
   ram: string;
   storage: string;
   price: number;
