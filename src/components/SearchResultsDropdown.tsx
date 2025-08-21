@@ -9,7 +9,7 @@ interface SearchResultsDropdownProps {
 export function SearchResultsDropdown({ results, query, onClose }: SearchResultsDropdownProps) {
   if (results.length === 0 && query.trim()) {
     return (
-      <div className="absolute top-full left-0 right-0 mt-1 bg-popover border rounded-md shadow-lg z-50 animate-fade-in">
+      <div className="absolute top-full left-0 w-full mt-1 bg-popover border rounded-md shadow-lg z-50 animate-fade-in max-sm:w-[320px] max-sm:left-2/4 max-sm:-translate-x-2/4">
         <div className="p-4 text-center text-muted-foreground">
           لا توجد نتائج
         </div>
@@ -20,7 +20,7 @@ export function SearchResultsDropdown({ results, query, onClose }: SearchResults
   if (results.length === 0) return null;
 
   return (
-    <div className="absolute top-full left-0 right-0 mt-1 bg-popover border rounded-md shadow-lg z-50 animate-fade-in">
+    <div className="absolute top-full left-0 w-full mt-1 bg-popover border rounded-md shadow-lg z-50 animate-fade-in max-sm:w-[320px] max-sm:left-2/4 max-sm:-translate-x-2/4">
       <div className="max-h-96 overflow-y-auto">
         {results.map((phone) => (
           <Link
@@ -30,7 +30,7 @@ export function SearchResultsDropdown({ results, query, onClose }: SearchResults
             className="flex items-center gap-3 p-3 hover:bg-accent/50 border-b last:border-b-0 focus-ring"
           >
             <img 
-              src={"#"}
+              src={phone.images[`${phone.colors[0].key}`]}
               alt={phone.name}
               className="w-12 h-12 object-cover rounded"
             />
